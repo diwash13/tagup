@@ -9,12 +9,14 @@ const Logs = props =>
 
 Logs.propTypes = {
   deleteLog: PropTypes.func.isRequired,
-  log: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-    timestamp: PropTypes.string.isRequired
-  })
+  logs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      message: PropTypes.string.isRequired,
+      timestamp: PropTypes.string.isRequired
+    })
+  )
 };
 
 export default Logs;
