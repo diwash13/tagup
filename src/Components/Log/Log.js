@@ -1,6 +1,49 @@
-import React from 'react'
-import Card from '../Card/Card'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Card from "../Card/Card";
+import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 
-const Log = (props) => <Card> <span>{props.log.title} {props.log.message} {props.log.timestamp}</span> </Card>
+class Log extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+  }
 
-export default Log
+  openModal = () => {
+    this.setState({ isOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ isOpen: false });
+  };
+
+  render() {
+    return (
+      <Card>
+        <div>{this.props.log.title}</div> <div>{this.props.log.message}</div>
+        <div>{this.props.log.timestamp}</div>
+        <Button label={"Delete"} onClick={this.openModal} />
+        <Modal
+          isOpen={this.state.isOpen}
+          onOk={this.props.deleteLog}
+          onCancel={this.closeModal}
+        />
+      </Card>
+    );
+  }
+}
+
+Log.propTypes = {
+  deleteLog: PropTypes.func.isRequired,
+  log: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    timestamp: PropTypes.string.isRequired
+  })
+};
+
+export default Log;
