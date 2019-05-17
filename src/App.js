@@ -3,13 +3,16 @@ import LogForm from "./Components/LogForm/LogForm";
 import { data } from "./Data";
 import Logs from "./Components/Logs/Logs";
 import Seacrh from "./Components/Search/Search";
+import UtilityBar from "./Components/UtilityBar/UtilityBar";
+import SortBy from "./SortBy/SortBy";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       logs: [...data],
-      searchText: ""
+      searchText: "",
+      sortBy: "dateDesc"
     };
   }
 
@@ -33,16 +36,33 @@ class App extends Component {
   };
 
   filteredLog = () => {
-    return this.state.logs.filter(log =>
-      log.title.indexOf(this.state.searchText) === -1 ? false : true
+    let sortedLogs = [...this.state.logs];
+    if (this.state.sortBy === "dateDesc") {
+      sortedLogs.sort((a, b) => (new Date(a.timestamp) > new Date(b.timestamp) ? -1 : 1));
+    } else if (this.state.sortBy === "dateAsc") {
+      sortedLogs.sort((a, b) => (new Date(a.timestamp) < new Date(b.timestamp) ? -1 : 1));
+    } else if (this.state.sortBy === "title") {
+      sortedLogs.sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1)
+    }
+    return sortedLogs.filter(log =>
+      log.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) === -1 ? false : true
     );
+  };
+
+  onSort = type => {
+    this.setState({
+      sortBy: type
+    });
   };
 
   render() {
     return (
       <main className="App">
         <LogForm addLog={this.addLog} />
-        <Seacrh onChange={this.handleSearchChange} />
+        <UtilityBar>
+          <Seacrh onChange={this.handleSearchChange} />
+          <SortBy onSort={this.onSort}/>
+        </UtilityBar>
         <Logs logs={this.filteredLog()} deleteLog={this.deleteLog} />
       </main>
     );
