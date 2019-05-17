@@ -20,6 +20,11 @@ class Log extends Component {
     this.setState({ isOpen: false });
   };
 
+  handleOnOk = () => {
+    this.props.deleteLog()
+    this.closeModal()
+  }
+
   render() {
     return (
       <Card>
