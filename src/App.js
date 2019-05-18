@@ -4,7 +4,8 @@ import { data } from "./Data";
 import Logs from "./Components/Logs/Logs";
 import Seacrh from "./Components/Search/Search";
 import UtilityBar from "./Components/UtilityBar/UtilityBar";
-import SortBy from "./SortBy/SortBy";
+import SortBy from "./Components/SortBy/SortBy";
+import styles from "./App.module.css";
 
 class App extends Component {
   constructor(props) {
@@ -38,14 +39,27 @@ class App extends Component {
   filteredLog = () => {
     let sortedLogs = [...this.state.logs];
     if (this.state.sortBy === "dateDesc") {
-      sortedLogs.sort((a, b) => (new Date(a.timestamp) > new Date(b.timestamp) ? -1 : 1));
+      sortedLogs.sort((a, b) =>
+        new Date(a.timestamp) > new Date(b.timestamp) ? -1 : 1
+      );
     } else if (this.state.sortBy === "dateAsc") {
-      sortedLogs.sort((a, b) => (new Date(a.timestamp) < new Date(b.timestamp) ? -1 : 1));
-    } else if (this.state.sortBy === "title") {
-      sortedLogs.sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1)
+      sortedLogs.sort((a, b) =>
+        new Date(a.timestamp) < new Date(b.timestamp) ? -1 : 1
+      );
+    } else if (this.state.sortBy === "titleAZ") {
+      sortedLogs.sort((a, b) =>
+        a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1
+      );
+    } else if (this.state.sortBy === "titleZA") {
+      sortedLogs.sort((a, b) =>
+        a.title.toLowerCase() < b.title.toLowerCase() ? 1 : -1
+      );
     }
     return sortedLogs.filter(log =>
-      log.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) === -1 ? false : true
+      log.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) ===
+      -1
+        ? false
+        : true
     );
   };
 
@@ -57,11 +71,11 @@ class App extends Component {
 
   render() {
     return (
-      <main className="App">
+      <main className={styles.app}>
         <LogForm addLog={this.addLog} />
         <UtilityBar>
           <Seacrh onChange={this.handleSearchChange} />
-          <SortBy onSort={this.onSort}/>
+          <SortBy onSort={this.onSort} />
         </UtilityBar>
         <Logs logs={this.filteredLog()} deleteLog={this.deleteLog} />
       </main>
