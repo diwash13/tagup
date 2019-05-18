@@ -7,8 +7,8 @@ export const data = [
   },
   {
     id: 1,
-    title: "New Alarm 1 Created",
-    message: "New Alarm high power has been created",
+    title: "Alarm high energy consumption is triggered",
+    message: "Energy consumption of this asset is high. Please resolve this issue ASAP",
     timestamp: "2019-05-15T17:11:17.580Z"
   },
   {
