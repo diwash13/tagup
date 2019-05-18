@@ -14,11 +14,16 @@ class LogForm extends Component {
 
   addLog = e => {
     e.preventDefault();
-    this.props.addLog({
-      ...this.state,
-      timestamp: new Date().toISOString()
-    });
-    this.clearState();
+    const { title, message } = this.state;
+    if (title && message) {
+      this.props.addLog({
+        ...this.state,
+        timestamp: new Date().toISOString()
+      });
+      this.clearState();
+    } else {
+      alert("Oops! Input fields can not be left empty!!");
+    }
   };
 
   clearState = () => {
@@ -43,7 +48,7 @@ class LogForm extends Component {
   render() {
     return (
       <Card>
-        <h3>Add New Log</h3>
+        <h3 className={styles.add}>Add New Log</h3>
         <form onSubmit={this.addLog}>
           <input
             className={styles.input}
@@ -62,10 +67,12 @@ class LogForm extends Component {
             value={this.state.message}
           />
           <Button
-            className="far fa-comment-alt"
+            className={styles.submit}
+            // className="far fa-comment-alt"
             type="submit"
             label={" Submit"}
           />
+          <i className="far fa-comment-alt" style={{ marginLeft: "-145px" }} />
         </form>
       </Card>
     );
