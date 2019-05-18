@@ -1,0 +1,24 @@
+.log {
+  width: 83vw;
+  margin: 15px 25px 20px 50px;
+}
+
+.logContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.message {
+  padding: 10px;
+}
+
+.timestamp {
+  padding: 10px;
+  color: #808080;
+}
