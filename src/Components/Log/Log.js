@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
+import styles from "./log.module.css";
 
 class Log extends Component {
   constructor(props) {
@@ -21,16 +22,25 @@ class Log extends Component {
   };
 
   handleOnOk = () => {
-    this.props.deleteLog()
-    this.closeModal()
-  }
+    this.props.deleteLog();
+    this.closeModal();
+  };
 
   render() {
     return (
       <Card>
-        <div>{this.props.log.title}</div> <div>{this.props.log.message}</div>
-        <div>{this.props.log.timestamp}</div>
-        <Button label={"Delete"} onClick={this.openModal} />
+        <div className={styles.logContainer}>
+          <div className={styles.log}>
+            <div className={styles.title}>{this.props.log.title}</div>
+            <div className={styles.message}>{this.props.log.message}</div>
+            <div className={styles.timestamp}>{this.props.log.timestamp}</div>
+          </div>
+          <Button
+            className={styles.delete}
+            label={"Delete"}
+            onClick={this.openModal}
+          />
+        </div>
         <Modal
           isOpen={this.state.isOpen}
           onOk={this.props.deleteLog}
