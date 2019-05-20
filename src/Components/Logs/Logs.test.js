@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Logs from "./Logs";
-import Log from '../Log/Log'
+import Log from "../Log/Log";
 
 describe("<Logs/>", () => {
   it("should render as many Log as number of items in props.logs", () => {
@@ -26,6 +26,6 @@ describe("<Logs/>", () => {
       }
     ];
     const wrapper = shallow(<Logs deleteLog={jest.fn()} logs={logs} />);
-    expect(wrapper.find(Log)).toHaveLength(logs.length)
+    expect(wrapper.find(Log)).toHaveLength(logs.length);
   });
 });

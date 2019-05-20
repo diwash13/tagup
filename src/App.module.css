@@ -1,4 +1,15 @@
+body {
+  background-color: #eff0f1;
+}
+
 .app {
   width: 70vw;
   margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 425px) {
+  .app {
+    width: 95vw;
+  }
 }

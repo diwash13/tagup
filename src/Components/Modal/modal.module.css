@@ -12,16 +12,13 @@
 }
 
 .modal {
-  padding: 1rem 1.5rem;
-  width: 30rem;
+  padding: 16px 24px;
+  min-width: 320px;
   border-radius: 0.5rem;
-  background: rgb(208, 232, 254, 0.8);
+  background: #ffffff;
 }
 
 .buttonContainer {
-  padding: 10px;
-}
-
-h4 {
-  margin-left: 60px;
+  display: flex;
+  justify-content: space-around;
 }

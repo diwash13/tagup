@@ -1,19 +1,33 @@
 .button {
-    align-self: center;
-    height: 40px;
-    width: 150px;
-    border: solid 1px rgba(255,255,255,0.8);
-    background: rgba(50,130,251,0.3);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    font-size: 12pt;
-    color: #002E40;
-    padding: 10px;
-    margin-right: 20px;
-    margin-left: 50px;
-    margin-bottom: 20px;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 110px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
 }
 
-.button:hover {
-    cursor: pointer;
-    background-color: rgba(50,130,251,0.6);
+.raisedButton {
+  color: #fff;
+  background-color: #2196f3;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+.raisedButton:hover {
+  cursor: pointer;
+  background-color: #1976d2;
+}
+
+.flatButton {
+  color: #2196f3;
+}
+
+.flatButton:hover {
+  cursor: pointer;
+  background-color: rgba(33, 150, 243, 0.08);
+}
+
+.iconStyle {
+  margin-right: 5px;
 }

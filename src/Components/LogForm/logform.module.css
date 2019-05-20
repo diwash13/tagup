@@ -1,23 +1,19 @@
-.textarea, .input {
-    min-height: 25px;
-    width: 53vw;
-    margin: -10px 0px 20px 50px;
-    border: solid 1px rgba(255,255,255,0.8);
-    padding: 10px 25px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    font-size: 11pt;
+.messageInput,
+.titleInput {
+  min-height: 25px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  padding: 10px 25px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  font-size: 11pt;
+  border-radius: 4px;
 }
 
-.input:focus, .textarea:focus {
-    background-color: whitesmoke;
+.titleInput:focus,
+.messageInput:focus {
+  background-color: #eff0f1;
 }
-
- .add {
-    margin: 10px 30px 20px 50px;  
-    padding: 15px;
- }
- 
-
- 
- 

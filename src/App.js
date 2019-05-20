@@ -20,8 +20,6 @@ class App extends Component {
   addLog = log => {
     const logWithId = { ...log, id: Date.now() };
     this.setState({ logs: [logWithId, ...this.state.logs] });
-    //   const newLogArr = this.state.logs.slice().push(log)
-    //   this.setState({logs: newLogArr})
   };
 
   deleteLog = index => {

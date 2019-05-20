@@ -36,14 +36,15 @@ class Log extends Component {
             <div className={styles.timestamp}>{this.props.log.timestamp}</div>
           </div>
           <Button
-            className={styles.delete}
             label={"Delete"}
             onClick={this.openModal}
+            variant="flat"
+            iconClassName="far fa-trash-alt"
           />
         </div>
         <Modal
           isOpen={this.state.isOpen}
-          onOk={this.props.deleteLog}
+          onOk={this.handleOnOk}
           onCancel={this.closeModal}
         />
       </Card>

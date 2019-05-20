@@ -18,7 +18,7 @@ class LogForm extends Component {
     if (title && message) {
       this.props.addLog({
         ...this.state,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toLocaleString()
       });
       this.clearState();
     } else {
@@ -48,17 +48,17 @@ class LogForm extends Component {
   render() {
     return (
       <Card>
-        <h3 className={styles.add}>Add New Log</h3>
+        <h2>Add New Log</h2>
         <form onSubmit={this.addLog}>
           <input
-            className={styles.input}
+            className={styles.titleInput}
             type="text"
             placeholder="Log Title"
             onChange={e => this.handleChangeTitle(e.target.value)}
             value={this.state.title}
           />
           <textarea
-            className={styles.textarea}
+            className={styles.messageInput}
             name="Log Message"
             placeholder="Log Message"
             cols="30"
@@ -67,12 +67,11 @@ class LogForm extends Component {
             value={this.state.message}
           />
           <Button
-            className={styles.submit}
-            // className="far fa-comment-alt"
             type="submit"
-            label={" Submit"}
+            label="Submit"
+            variant="raised"
+            iconClassName="far fa-comment-alt"
           />
-          <i className="far fa-comment-alt" style={{ marginLeft: "-145px" }} />
         </form>
       </Card>
     );

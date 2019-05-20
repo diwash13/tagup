@@ -5,7 +5,7 @@ import styles from "./search.module.css";
 class Search extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.searchContainer}>
         <input
           className={styles.search}
           placeholder="Search Logs"

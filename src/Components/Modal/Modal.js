@@ -12,9 +12,18 @@ class Modal extends Component {
       <div className={styles.modalContainer}>
         <div className={styles.modal}>
           <h4>Are You Sure You Want to Delete the Log?</h4>
-          <div className={styles.buttonContainer}>{this.props.children}</div>
-          <Button label="Yes, I am Positive" onClick={this.props.onOk} />
-          <Button label="No, Go Back" onClick={this.props.onCancel} />
+          <div className={styles.buttonContainer}>
+            <Button
+              variant="raised"
+              label="Yes, I am Positive"
+              onClick={this.props.onOk}
+            />
+            <Button
+              variant="flat"
+              label="No, Go Back"
+              onClick={this.props.onCancel}
+            />
+          </div>
         </div>
       </div>
     );
